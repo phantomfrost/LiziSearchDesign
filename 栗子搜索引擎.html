@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <link>
+        <style>
+
+            * {
+                outline: none;
+            }
+
+            input {
+                font-family: inherit;
+                border: none;
+            }
+
+            #search
+            {
+                width: 850px;
+                height: 120px;
+                background: rgba(255, 255, 255, .55);
+                border-radius: 70px;
+
+                position: fixed;
+                left: 50vw;
+                top: 30vh;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            #search_box
+            {
+                position: absolute;
+                left: 25px;
+                top: 25px;
+                line-height: 70px;
+                padding: 0 150px 0 30px;
+
+                width: 620px;
+                background-color: #fff;
+                border-radius: 35px;
+
+                cursor: text;
+                font-size: 26px;
+                color: #666;
+                
+
+                -webkit-appearance: textfield;
+                -moz-appearance: textfield;
+                -ms-appearance: textfield;
+            }
+
+            #search_button
+            {
+                display: block;
+                width: 120px;
+                height: 50px;
+                background: #00ee9e;
+                box-shadow: 0px 0px 6px 3px #eee;
+                border-radius: 50px;
+                cursor: pointer;
+
+                position: absolute;
+                right: 35px;
+                top: 35px;
+
+                line-height: 50px;
+                font-size: 20px;
+                color: #fff;
+                text-align: center;
+                transition: all 0.05s ease-out;
+            }
+
+            #search_button:active
+            {
+                background: #00e397;
+            }
+
+            body {
+                background-color: aquamarine;
+                font-family: Inter,-apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,noto sans,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+            }
+            
+            ::-webkit-input-placeholder { color: #ddd; }
+            :-moz-placeholder { color:#ddd; }
+            ::-moz-placeholder { color: #ddd; }
+            :-ms-input-placeholder { color: #ddd; }
+        </style>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4296463_89detltoze8.css"></link>
+    </head>
+    <body>
+        <div id="search">
+            <input type="text" id="search_box" placeholder="百度知道，世界如此简单"/>
+            <div id="search_button">搜索 <i class="iconfont icon-sousuo"></i></div>
+        </div>
+        <script>
+            function jump()
+            {
+                const wd = document.querySelector('#search_box').value;
+                if (wd === '') return;
+                window.location.href = `https://www.baidu.com/s?wd=${wd}`;
+            }
+            document.querySelector('#search_button').addEventListener("click", jump);
+            document.querySelector('#search_box').addEventListener("keyup", (event) => {
+                if (event.keyCode === 13) jump();
+            });
+        </script>
+    </body>
+</html>
